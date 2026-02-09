@@ -1,0 +1,29 @@
+{
+  "name": "xpace",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "watch": "webpack --config webpack.config.js --watch"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.24.0",
+    "@parallelogram-js/core": "^0.2.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.0",
+    "@babel/plugin-transform-runtime": "^7.24.0",
+    "@babel/preset-env": "^7.24.0",
+    "autoprefixer": "^10.4.0",
+    "babel-loader": "^9.1.0",
+    "css-loader": "^6.10.0",
+    "mini-css-extract-plugin": "^2.8.0",
+    "postcss": "^8.4.0",
+    "postcss-loader": "^8.1.0",
+    "sass": "^1.71.0",
+    "sass-loader": "^14.1.0",
+    "terser-webpack-plugin": "^5.3.0",
+    "webpack": "^5.90.0",
+    "webpack-cli": "^5.1.0"
+  }
+}
