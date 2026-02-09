@@ -5,10 +5,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     mode: 'production',
     entry: {
-        xpace: [
+        app: [
             './asset/js/core/App.js',
-            './asset/js/xpace.js',
-            './asset/css/xpace.scss'
+            './asset/js/app.js',
+            './asset/css/app.scss'
         ]
     },
     output: {

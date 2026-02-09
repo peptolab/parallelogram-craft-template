@@ -1,0 +1,26 @@
+{% set activeNode = craft.navigation.getActiveNode({ handle: 'mainMenu' }) %}
+{% set nodes = craft.navigation.nodes()
+    .handle('mainMenu')
+    .level(1)
+    .all() %}
+        <header class="navbar" id="navbar-navigation">
+
+            <div class="navbar__menu">
+
+                <ul class="navbar__nav">
+{% for node in nodes %}
+                    <li class="navbar__item"><a class="navbar__link{% if node.active %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a></li>
+{% endfor %}
+                </ul>
+
+            </div>
+
+            <button class="navbar__toggler" type="button" data-navbar="navbar-navigation" aria-controls="navbar-navigation" aria-expanded="false" aria-label="Toggle navigation">
+                View Navigation
+            </button>
+
+            <a aria-label="Homepage" class="navbar__brand" href="/">
+                Brand Logo
+            </a>
+
+        </header>

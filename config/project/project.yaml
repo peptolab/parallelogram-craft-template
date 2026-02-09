@@ -1,0 +1,31 @@
+dateModified: 1770603066
+email:
+  fromEmail: noreply@example.com
+  fromName: My Site
+  transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    717e1d41-2c73-45ec-94d4-93611f03fdf4: My Site # My Site
+    8192302a-2e73-49c8-8e08-4cc9c11fe7fb: My Site # My Site
+plugins:
+  navigation:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.1.2
+  social-share:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+system:
+  edition: solo
+  live: true
+  name: My Site
+  schemaVersion: 5.9.0.8
+  timeZone: Australia/Sydney
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  require2fa: false
+  requireEmailVerification: true
