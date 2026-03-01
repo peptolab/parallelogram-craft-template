@@ -1,5 +1,5 @@
 const path = require('path');
-const TerserJSPlugin = require('terser-webpack-plugin');
+const { EsbuildPlugin } = require('esbuild-loader');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
@@ -73,13 +73,8 @@ module.exports = {
         minimize: true,
         sideEffects: true,
         minimizer: [
-            new TerserJSPlugin({
-                terserOptions: {
-                    compress: {
-                        drop_console: false,
-                    },
-                },
-                extractComments: false,
+            new EsbuildPlugin({
+                target: 'es2018',
             }),
         ]
     },
