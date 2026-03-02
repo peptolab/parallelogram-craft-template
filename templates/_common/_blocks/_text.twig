@@ -1,0 +1,23 @@
+            <section class="text__section theme--{{ block.theme | default('default') }}">
+
+                <article class="text__layout text__layout--{{ block.layout | default('regular') }} text__layout--{{ block.size | default('regular') }}" data-reveal>
+{% if block.heading %}
+
+                    <h2 data-reveal class="text__heading">{{ block.heading | nl2br }}</h2>
+{% endif %}
+{% if block.description %}
+
+                    <div data-reveal class="text__description html">
+                        {{ block.description }}
+                    </div>
+{% endif %}
+{% if block.linkedAction %}
+
+                    <nav data-reveal class="text__nav">
+                        <a class="text__btn" href="{{ block.linkedAction }}"><span>{{ block.callToAction | default('Learn More') }}</span></a>
+                    </nav>
+{% endif %}
+
+                </article>
+
+            </section>

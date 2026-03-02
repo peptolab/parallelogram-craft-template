@@ -1,0 +1,5 @@
+{% for block in content.all() %}
+{% set component = '_common/_blocks/_' ~ block.type %}
+
+{% include component with { block: block } only %}
+{% endfor %}

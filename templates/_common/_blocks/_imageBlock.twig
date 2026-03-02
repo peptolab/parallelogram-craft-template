@@ -1,0 +1,25 @@
+{% set images = block.image.all() | default([]) %}
+{% if images | length > 0 %}
+            <section class="image__section image__section--{{ block.size | default('regular') }} theme--{{ block.theme | default('default') }}">
+
+                <div class="image__container">
+
+                    <div class="image__layout image__layout--{{ images | length }}">
+{% for asset in images %}
+
+                        <figure class="image__asset">
+                            <picture class="image__asset--media">
+                                <img src="{{ asset.url }}" alt="{{ asset.title }}" loading="{{ loop.index0 ? 'lazy' }}">
+                            </picture>
+{% if block.caption %}
+                            <figcaption class="image__asset--caption html">{{ block.caption }}</figcaption>
+{% endif %}
+                        </figure>
+{% endfor %}
+
+                    </div>
+
+                </div>
+
+            </section>
+{% endif %}

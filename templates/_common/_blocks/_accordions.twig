@@ -1,0 +1,20 @@
+            <section class="accordion__section theme--{{ block.theme | default('default') }}">
+
+                <div class="accordion__container">
+
+                    <h2 data-reveal class="accordion__heading">
+                        {{ block.heading | nl2br }}
+                    </h2>
+
+                </div>
+{% if block.accordionItems | length > 0 %}
+{% for item in block.accordionItems.all() %}
+
+                <details class="accordion">
+                    <summary data-reveal class="accordion__q">{{ item.title }}</summary>
+                    <div class="accordion__a html">{{ item.description }}</div>
+                </details>
+{% endfor %}
+{% endif %}
+
+            </section>

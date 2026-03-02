@@ -1,0 +1,224 @@
+{% set modifier = [
+    block.size,
+    block.layout
+] | filter | join('-') %}
+
+            <section class="form__section theme--{{ block.theme | default('default') }}">
+
+                <div class="form__container">
+
+                    <article class="form__layout{% if modifier %} form__layout--{{ modifier }}{% endif %}" data-reveal>
+{% if block.heading %}
+
+                        <h2 data-reveal class="form__heading">{{ block.heading | nl2br }}</h2>
+{% endif %}
+{% if block.form is defined and block.form | length %}
+{% set handle = block.form.one() %}
+
+                        <div data-reveal>{{ craft.formie.renderForm(handle, {
+                                themeConfig: {
+                                    resetClasses: true,
+
+                                    alertError: {
+                                        attributes: {
+                                            class: 'alert alert--danger',
+                                        },
+                                    },
+
+                                    alertSuccess: {
+                                        attributes: {
+                                            class: 'alert alert--success',
+                                        },
+                                    },
+
+                                    buttonWrapper: {
+                                        attributes: {
+                                            class: [
+                                                'form__action',
+                                                "{{ buttonsPosition == 'left' ? 'form__action--start' }}",
+                                                "{{ buttonsPosition == 'right' ? 'form__action--end' }}",
+                                                "{{ buttonsPosition == 'center' ? 'form__action--center' }}",
+                                                "{{ buttonsPosition == 'left-right' ? 'form__action--justify' }}"
+                                            ],
+                                        },
+                                    },
+
+                                    buttonContainer: {
+                                        attributes: {
+                                            class: 'form__action',
+                                        },
+                                    },
+
+                                    backButton: {
+                                        attributes: {
+                                            class: 'form__btn form__btn--secondary form__btn--start',
+                                        },
+                                    },
+
+                                    submitButton: {
+                                        attributes: {
+                                            class: 'form__btn form__btn--primary form__btn--end',
+                                        },
+                                    },
+
+                                    row: {
+                                        attributes: {
+                                            class: [
+                                                'form__grid',
+                                                "{{ row.isHidden() ? ' d-none' }}",
+                                            ],
+                                        },
+                                    },
+
+                                    field: {
+                                        attributes: {
+                                            class: 'form__col'
+                                        },
+                                    },
+
+                                    fieldLabel: {
+                                        attributes: {
+                                            class: 'form__label',
+                                        },
+                                    },
+
+                                    fieldRequired: {
+                                        attributes: {
+                                            class: 'required',
+                                        },
+                                    },
+
+                                    fieldInstructions: {
+                                        attributes: {
+                                            class: 'form__text',
+                                        },
+                                    },
+
+                                    fieldInput: {
+                                        attributes: {
+                                            class: [
+                                                'form__control',
+                                                "{{ (submission.getErrors(field.handle) ?? null) ? '' }}",
+                                            ],
+                                        },
+                                    },
+
+                                    fieldErrors: {
+                                        attributes: {
+                                            class: 'form__errors',
+                                        },
+                                    },
+
+                                    fieldError: {
+                                        attributes: {
+                                            class: 'form__error',
+                                        },
+                                    },
+
+                                    subFieldRows: {
+                                        attributes: {
+                                            class: 'form__grid',
+                                        },
+                                    },
+
+                                    subFieldRow: {
+                                        attributes: {
+                                            class: 'form__grid',
+                                        },
+                                    },
+
+                                    agree: {
+                                        fieldOption: {
+                                            attributes: {
+                                                class: 'form__check',
+                                            },
+                                        },
+
+                                        fieldOptionLabel: {
+                                            attributes: {
+                                                class: 'form__check--label',
+                                            },
+                                        },
+
+                                        fieldInput: {
+                                            resetClass: true,
+
+                                            attributes: {
+                                                class: 'form__check--input',
+                                            },
+                                        },
+                                    },
+
+                                    checkboxes: {
+                                        fieldOption: {
+                                            attributes: {
+                                                class: 'form__control form__control--checkbox',
+                                            },
+                                        },
+
+                                        fieldOptions: {
+                                            resetClass: true,
+                                            attributes: {
+                                                class: 'form__group',
+                                            }
+                                        },
+
+                                        fieldOptionLabel: {
+                                            resetClass: true
+                                        },
+
+                                        fieldInput: {
+                                            resetClass: true
+                                        },
+                                    },
+
+                                    dropdown: {
+                                        fieldInput: {
+                                            resetClass: true,
+
+                                            attributes: {
+                                                class: 'form__control form__control--select',
+                                            },
+                                        },
+                                    },
+
+                                    hiddenField: {
+                                        field: {
+                                            resetClass: true
+                                        },
+                                    },
+
+                                    radioButtons: {
+                                        fieldOption: {
+                                            attributes: {
+                                                class: 'form__check',
+                                            },
+                                        },
+
+                                        fieldOptionLabel: {
+                                            attributes: {
+                                                class: 'form__check--label',
+                                            },
+                                        },
+
+                                        fieldInput: {
+                                            resetClass: true,
+
+                                            attributes: {
+                                                class: 'form__check--input',
+                                            },
+                                        },
+                                    },
+                                },
+                            }) }}</div>
+{% endif %}
+
+                    </article>
+{% if block.description %}
+
+                    <aside data-reveal class="form__content html">{{ block.description }}</aside>
+{% endif %}
+
+                </div>
+
+            </section>

@@ -1,0 +1,57 @@
+{% set slides = block.slides.all() %}
+{% if slides | length > 0 %}
+
+    <section data-carousel class="carousel__section carousel__section--{{ block.size | default('regular') }} theme--{{ block.theme | default('default') }}">
+{% if block.heading %}
+
+        <h2 data-reveal class="carousel__heading">{{ block.heading | nl2br }}</h2>
+{% endif %}
+
+        <div class="carousel__layout">
+
+            <div class="carousel__viewport" data-carousel-viewport>
+
+                <div class="carousel__track">
+{% for slide in slides %}
+{% set asset = slide.image.one() %}
+{% if asset %}
+
+                    <figure class="carousel__slide">
+                        <picture class="carousel__slide--media">
+                            <img src="{{ asset.url }}" alt="{{ asset.title }}" loading="{{ loop.index0 ? 'lazy' }}">
+                        </picture>
+{% if slide.caption %}
+                        <figcaption class="carousel__slide--caption html">{{ slide.caption }}</figcaption>
+{% endif %}
+{% if slide.linkedAction %}
+                        <a class="carousel__slide--link" href="{{ slide.linkedAction }}">{{ slide.callToAction | default('Learn More') }}</a>
+{% endif %}
+                    </figure>
+{% endif %}
+{% endfor %}
+                </div>
+
+            </div>
+{% if slides | length > 1 %}
+
+            <button class="carousel__button" data-carousel-nav="prev" tabindex="-1" aria-label="Previous Slide">
+                <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 48"><path d="M24.86 46.53 2.13 23.8 24.86 1.06" stroke="currentColor" stroke-width="3" stroke-miterlimit="10"/></svg>
+            </button>
+
+            <button class="carousel__button" data-carousel-nav="next" tabindex="-1" aria-label="Next Slide">
+                <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 48"><path d="m1.06 1.06 22.73 22.73L1.06 46.53" stroke="currentColor" stroke-width="3" stroke-miterlimit="10"/></svg>
+            </button>
+{% endif %}
+
+        </div>
+{% if slides | length > 1 %}
+
+        <nav class="carousel__nav">
+{% for slide in slides %}
+                <button class="carousel__nav--btn" data-carousel-nav-slide>{{ loop.index }}</button>
+{% endfor %}
+        </nav>
+{% endif %}
+
+    </section>
+{% endif %}

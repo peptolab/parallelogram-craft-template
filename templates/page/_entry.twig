@@ -1,36 +1,11 @@
-{% extends '_layout' %}
+{% extends "_layout" %}
 
 {% block content %}
+        <main data-view="main">
+{% if entry.contentBlock | length > 0 %}
 
-    {% if entry.image|length %}
-        <div class="page-hero">
-            {% set img = entry.image.one() %}
-            <img src="{{ img.url }}" alt="{{ img.title }}">
-        </div>
-    {% endif %}
+{% include '_common/_block' with { content: entry.contentBlock } only %}
+{% endif %}
 
-    {% for block in entry.contentBlock.all() %}
-        {% switch block.type.handle %}
-
-            {% case 'text' %}
-                {% include '_common/_blocks/text' with { block: block } %}
-
-            {% case 'imageBlock' %}
-                {% include '_common/_blocks/image' with { block: block } %}
-
-            {% case 'textImage' %}
-                {% include '_common/_blocks/text-image' with { block: block } %}
-
-            {% case 'carousel' %}
-                {% include '_common/_blocks/carousel' with { block: block } %}
-
-            {% case 'accordions' %}
-                {% include '_common/_blocks/accordions' with { block: block } %}
-
-            {% case 'formBlock' %}
-                {% include '_common/_blocks/form' with { block: block } %}
-
-        {% endswitch %}
-    {% endfor %}
-
+        </main>
 {% endblock %}

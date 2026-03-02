@@ -1,0 +1,33 @@
+            <section class="checkerboard__section checkerboard__section--{{ block.imageAlignment | default('left') }} theme--{{ block.theme | default('default') }}">
+{% if block.image | length > 0 %}
+{% set asset = block.image.one() %}
+
+                <figure class="checkerboard__panel--asset">
+                    <picture class="checkerboard__panel--media">
+                        <img src="{{ asset.url }}" alt="{{ asset.title }}" loading="lazy">
+                    </picture>
+                </figure>
+{% endif %}
+                <div class="checkerboard__container checkerboard__container--{{ block.layout | default('regular') }}">
+
+                    <div class="checkerboard__layout checkerboard__layout--{{ block.size | default('regular') }}">
+{% if block.heading %}
+
+                        <h2 data-reveal class="checkerboard__title">{{ block.heading | nl2br }}</h2>
+{% endif %}
+{% if block.description %}
+
+                        <div data-reveal class="checkerboard__description html">{{ block.description }}</div>
+{% endif %}
+{% if block.linkedAction %}
+
+                        <nav data-reveal class="checkerboard__nav">
+                            <a class="checkerboard__btn" href="{{ block.linkedAction }}"><span>{{ block.callToAction | default('Learn More') }}</span></a>
+                        </nav>
+{% endif %}
+
+                    </div>
+
+                </div>
+
+            </section>
