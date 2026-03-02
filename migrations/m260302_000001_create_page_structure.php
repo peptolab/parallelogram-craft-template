@@ -250,7 +250,7 @@ class m260302_000001_create_page_structure extends Migration
             $ss->enabledByDefault = true;
             $ss->hasUrls = true;
             $ss->uriFormat = '__home__';
-            $ss->template = 'index';
+            $ss->template = 'homepage/_entry';
             $homeSiteSettings[$site->id] = $ss;
         }
         $homepage->setSiteSettings($homeSiteSettings);

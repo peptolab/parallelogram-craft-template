@@ -1,36 +1,5 @@
 {% extends '_layout' %}
 
 {% block content %}
-
-    {% if entry.image|length %}
-        <div class="page-hero">
-            {% set img = entry.image.one() %}
-            <img src="{{ img.url }}" alt="{{ img.title }}">
-        </div>
-    {% endif %}
-
-    {% for block in entry.contentBlock.all() %}
-        {% switch block.type.handle %}
-
-            {% case 'text' %}
-                {% include 'page/_blocks/text' with { block: block } %}
-
-            {% case 'imageBlock' %}
-                {% include 'page/_blocks/image' with { block: block } %}
-
-            {% case 'textImage' %}
-                {% include 'page/_blocks/text-image' with { block: block } %}
-
-            {% case 'carousel' %}
-                {% include 'page/_blocks/carousel' with { block: block } %}
-
-            {% case 'accordions' %}
-                {% include 'page/_blocks/accordions' with { block: block } %}
-
-            {% case 'formBlock' %}
-                {% include 'page/_blocks/form' with { block: block } %}
-
-        {% endswitch %}
-    {% endfor %}
-
+    {{ siteName }}
 {% endblock %}
