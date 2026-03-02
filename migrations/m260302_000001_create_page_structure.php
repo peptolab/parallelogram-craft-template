@@ -24,15 +24,16 @@ class m260302_000001_create_page_structure extends Migration
                 'name' => 'Local',
                 'handle' => 'local',
                 'hasUrls' => true,
-                'url' => '@web/uploads',
-                'path' => '@webroot/uploads',
+                'url' => '@web/asset/library',
+                'path' => '@webroot/asset/library',
             ]);
             if (!Craft::$app->getFs()->saveFilesystem($fs)) {
                 throw new \RuntimeException('Could not save filesystem');
             }
         }
 
-        if (!Craft::$app->getVolumes()->getVolumeByHandle('media')) {
+        $volume = Craft::$app->getVolumes()->getVolumeByHandle('media');
+        if (!$volume) {
             $volume = new Volume();
             $volume->name = 'Media';
             $volume->handle = 'media';
@@ -41,6 +42,8 @@ class m260302_000001_create_page_structure extends Migration
                 throw new \RuntimeException('Could not save volume');
             }
         }
+
+        $volumeSource = "volume:{$volume->uid}";
 
         // --- Fields ---
 
@@ -58,6 +61,7 @@ class m260302_000001_create_page_structure extends Migration
             'allowedKinds' => ['image'],
             'sources' => '*',
             'maxRelations' => 1,
+            'defaultUploadLocationSource' => $volumeSource,
         ]);
 
         $caption = $this->_field(\craft\ckeditor\Field::class, 'Caption', 'caption', [
