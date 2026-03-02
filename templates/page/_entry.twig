@@ -13,22 +13,22 @@
         {% switch block.type.handle %}
 
             {% case 'text' %}
-                {% include 'page/_blocks/text' with { block: block } %}
+                {% include 'pages/_blocks/text' with { block: block } %}
 
             {% case 'imageBlock' %}
-                {% include 'page/_blocks/image' with { block: block } %}
+                {% include 'pages/_blocks/image' with { block: block } %}
 
             {% case 'textImage' %}
-                {% include 'page/_blocks/text-image' with { block: block } %}
+                {% include 'pages/_blocks/text-image' with { block: block } %}
 
             {% case 'carousel' %}
-                {% include 'page/_blocks/carousel' with { block: block } %}
+                {% include 'pages/_blocks/carousel' with { block: block } %}
 
             {% case 'accordions' %}
-                {% include 'page/_blocks/accordions' with { block: block } %}
+                {% include 'pages/_blocks/accordions' with { block: block } %}
 
             {% case 'formBlock' %}
-                {% include 'page/_blocks/form' with { block: block } %}
+                {% include 'pages/_blocks/form' with { block: block } %}
 
         {% endswitch %}
     {% endfor %}

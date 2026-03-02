@@ -1,0 +1,14 @@
+headingLevels:
+  - 2
+  - 3
+  - 4
+name: Advanced
+toolbar:
+  - heading
+  - '|'
+  - bold
+  - italic
+  - link
+  - '|'
+  - bulletedList
+  - numberedList
