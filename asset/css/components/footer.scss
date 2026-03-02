@@ -1,0 +1,13 @@
+@use '../settings' as *;
+@use '../tools' as *;
+
+.footer {
+
+    @include e('container') {
+        @include container;
+    }
+
+    @include e('nav') {
+        // Footer navigation
+    }
+}

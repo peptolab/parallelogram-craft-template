@@ -1,4 +1,6 @@
-@import 'variables';
-@import 'mixins';
-@import 'bem';
-@import 'base';
+@use 'base';
+@use 'includes';
+@use 'components/layout';
+@use 'components/navbar';
+@use 'components/footer';
+@use 'utilities';

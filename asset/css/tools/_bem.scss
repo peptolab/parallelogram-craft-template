@@ -1,5 +1,3 @@
-// BEM helper mixins
-
 @mixin element($name) {
   @at-root #{&}__#{$name} {
     @content;
@@ -12,7 +10,6 @@
   }
 }
 
-// Shorthand aliases
 @mixin e($name) {
   @include element($name) {
     @content;

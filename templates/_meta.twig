@@ -4,6 +4,8 @@
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
 
+        {% block title %}<title>{{ siteName }}</title>{% endblock %}
+
         <style type="text/css" media="screen">
             html.js [data-reveal] { animation-play-state: paused; }
         </style>
@@ -14,5 +16,5 @@
 
         <link rel="icon" href="/favicon.ico" sizes="any">
 
-        <link rel="stylesheet" href="/cms/css/app.css">
+        <link rel="stylesheet" href="/asset/css/app.css">
     </head>

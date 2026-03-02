@@ -1,0 +1,27 @@
+// Font Families
+$font-primary: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !default;
+$font-secondary: null !default;
+$font-mono: 'SF Mono', 'Fira Code', monospace !default;
+
+// Font Sizes
+$size-xs: 0.75rem !default;    // 12px
+$size-sm: 0.875rem !default;   // 14px
+$size-base: 1rem !default;     // 16px
+$size-md: 1.125rem !default;   // 18px
+$size-lg: 1.25rem !default;    // 20px
+$size-xl: 1.5rem !default;     // 24px
+$size-2xl: 2rem !default;      // 32px
+$size-3xl: 2.5rem !default;    // 40px
+$size-4xl: 3rem !default;      // 48px
+
+// Font Weights
+$weight-light: 300 !default;
+$weight-regular: 400 !default;
+$weight-medium: 500 !default;
+$weight-semibold: 600 !default;
+$weight-bold: 700 !default;
+
+// Line Heights
+$leading-tight: 1.2 !default;
+$leading-normal: 1.5 !default;
+$leading-loose: 1.8 !default;

@@ -13,7 +13,7 @@ module.exports = {
     },
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'web/cms/js'),
+        path: path.resolve(__dirname, 'web/asset/js'),
         chunkFilename: '[name].js',
     },
     resolve: {
@@ -58,7 +58,7 @@ module.exports = {
                         options: {
                             api: 'modern',
                             sassOptions: {
-                                silenceDeprecations: ['import', 'global-builtin', 'color-functions'],
+                                silenceDeprecations: ['color-functions'],
                                 includePaths: ['node_modules'],
                                 quietDeps: true
                             }

@@ -1,0 +1,29 @@
+@use '../settings' as *;
+@use '../tools' as *;
+
+.navbar {
+
+    @include e('menu') {
+        // Menu wrapper
+    }
+
+    @include e('nav') {
+        @include reset-list;
+    }
+
+    @include e('item') {
+        // Nav item
+    }
+
+    @include e('link') {
+        @include reset-link;
+    }
+
+    @include e('toggler') {
+        @include reset-button;
+    }
+
+    @include e('brand') {
+        @include reset-link;
+    }
+}

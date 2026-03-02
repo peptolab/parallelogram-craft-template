@@ -4,7 +4,7 @@ class App {
     }
 
     init() {
-        console.log('Xpace app initialized');
+        console.log('App initialized');
     }
 }
 
